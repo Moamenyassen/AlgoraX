@@ -7,13 +7,14 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: "#00f0ff", // Cyber Blue
-                secondary: "#bd00ff", // Neon Purple
-                dark: "#0a0a0a",
-                "dark-acc": "#171717",
+                primary: "#22d3ee", // Cyan-400 (lighter, glossier cyan)
+                secondary: "#a855f7", // Purple-500 (vibrant middle purple)
+                accent: "#3b82f6", // Blue-500
+                dark: "#020617", // Richer, darker blue-black background
+                "dark-acc": "#0f172a", // Slate-900
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
+                sans: ['Inter', 'IBM Plex Sans Arabic', 'system-ui', 'sans-serif'],
             },
         },
     },

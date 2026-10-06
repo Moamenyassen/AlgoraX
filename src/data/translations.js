@@ -1,14 +1,21 @@
 export const translations = {
     en: {
+        meta: {
+            title: "AlgoraX | AI & Software Solutions for Startups",
+            description: "AlgoraX builds AI-powered software for startups and growing companies: tech consulting, AI integration, custom development, cloud infrastructure, and Reach, our sales route optimization platform."
+        },
         nav: {
             solutions: "Solutions",
             products: "Products",
-            mission: "Mission",
+            howItWorks: "How It Works",
             contact: "Contact",
-            partner: "Partner With Us"
+            partner: "Partner With Us",
+            openMenu: "Open menu",
+            closeMenu: "Close menu",
+            switchLanguage: "التبديل إلى العربية"
         },
         algoraHero: {
-            badge: "Scaling Tomorrow's Unicorns",
+            badge: "Technology Partner for Startups",
             titleStart: "Solutions for",
             titleEnd: "Modern Startups.",
             description: "AlgoraX provides the technological backbone for visionary founders. From AI integration to scalable architecture, we build the tools that build the future.",
@@ -21,97 +28,127 @@ export const translations = {
             items: [
                 { title: "Tech Consulting", desc: "We help you choose the right stack, verify your architecture, and plan for scale before you write a single line of code." },
                 { title: "AI Integration", desc: "Embed state-of-the-art LLMs and predictive models into your existing product to gain a competitive edge." },
-                { title: "Custom Development", desc: "Full-cycle software development. MVP to IPO, our engineering teams are ready to deploy." },
+                { title: "Custom Development", desc: "Full-cycle software development, from first prototype to production. Our engineering team is ready to build with you." },
                 { title: "Cloud Infrastructure", desc: "Serverless, containerized, and auto-scaling. We build infrastructure that sleeps when you do and wakes up when you grow." }
             ]
         },
         productHeader: {
             label: "Flagship Product",
-            title: "RouteGeniusAI",
+            title: "Reach",
             desc: "Our premier application for sales route optimization."
         },
         hero: {
             badge: "Next Gen AI for Sales",
             titleStart: "Optimize Your",
             titleEnd: "Sales Routes",
-            desc: "RouteGeniusAI empowers your sales teams with predictive AI. Maximize efficiency, optimize travel routes, and close deals faster than ever before.",
-            start: "Start Free Trial",
-            demo: "View Demo",
+            desc: "Reach empowers your sales teams with predictive AI. Maximize efficiency, optimize travel routes, and close deals faster than ever before.",
+            start: "Book a Demo",
+            demo: "How It Works",
+            imageAlt: "Reach sales route dashboard",
             stats: {
-                ai: "AI Analysis Active",
-                conversion: "Conversion",
-                routeEff: "Route Eff.",
-                active: "AI Active",
-                online: "Optimization Online",
-                efficiency: "Efficiency Gain",
-                agents: "Active Agents"
+                planning: "Route Planning",
+                planningValue: "Automated",
+                rerouting: "Live Re-routing",
+                rerouteValue: "Online"
             }
+        },
+        featuresHeader: {
+            titleStart: "Powered by",
+            titleEnd: "Advanced Intelligence",
+            desc: "Everything you need to scale your sales operations, packed into one powerful platform."
         },
         features: [
             { title: "Create Sales Routes", desc: "Effortlessly design comprehensive sales routes for your entire team in seconds." },
             { title: "Fix & Adjust Routes", desc: "Real-time adjustments to handle cancellations, traffic, or schedule changes instantly." },
-            { title: "Optimize Efficiency", desc: "Save time and money by finding the most efficient path. drive less, sell more." },
+            { title: "Optimize Efficiency", desc: "Save time and money by finding the most efficient path. Drive less, sell more." },
             { title: "Find Missed Opportunities", desc: "AI analysis identifies potential clients along your route based on your specific business type." }
         ],
         workflow: {
             label: "How It Works",
             title: "Master Your Territory in 4 Steps",
-            desc: "From planning to closing, RouteGeniusAI guides you through the perfect sales day.",
+            desc: "From planning to closing, Reach guides you through the perfect sales day.",
             steps: [
-                { title: "Create Sales Route", desc: "Upload your leads or sync your CRM. RouteGeniusAI instantly maps out the perfect route for your entire sales team." },
+                { title: "Create Sales Route", desc: "Upload your leads or sync your CRM. Reach instantly maps out the best route for your entire sales team." },
                 { title: "Fix & Adjust", desc: "Need to make last-minute changes? Drag and drop stops, handle cancellations, and re-route instantly." },
-                { title: "Optimize Efficiency", desc: "Our AI calculates the absolute fastest path. Reduce drive time by 30% and squeeze in 2 extra meetings per day." },
-                { title: "Find Opportunities", desc: "Don't drive past money. RouteGeniusAI alerts you to potential prospects along your active route." }
+                { title: "Optimize Efficiency", desc: "Our AI calculates the fastest path between your stops, so your reps spend less time driving and more time in meetings." },
+                { title: "Find Opportunities", desc: "Don't drive past money. Reach alerts you to potential prospects along your active route." }
             ]
         },
         testimonials: {
             title: "Trusted by Industry Leaders",
-            items: [
-                { name: "Sarah Jenkins", role: "VP of Sales, TechCorp", content: "RouteGeniusAI completely transformed how we plan our territories. We saw a 30% increase in meetings booked within the first month." },
-                { name: "Michael Chen", role: "Field Director, SolarOne", content: "The route optimization is magic. Our reps spend less time driving and more time selling. It pays for itself 10x over." },
-                { name: "Elena Rodriguez", role: "CRO, GrowthFlow", content: "Finally, an AI tool that actually delivers on its promises. The predictive lead scoring is scary accurate." }
-            ]
+            // Add real, approved customer quotes here ({ name, role, content }); the section stays hidden while this list is empty.
+            items: []
         },
         cta: {
-            title: "Ready to Revolutionize Your Sales?",
-            desc: "Join over 500+ forward-thinking companies using RouteGeniusAI to crush their quotas and optimize every mile.",
-            primary: "Get Started Now",
-            secondary: "Book a Demo",
-            note: "No credit card required for 14-day trial."
+            title: "Ready to Transform Your Sales Routes?",
+            desc: "See how Reach helps your field team plan smarter routes, adapt on the fly, and spend more time selling.",
+            primary: "Book a Demo",
+            secondary: "Send Us a Message",
+            note: "We reply within one business day."
         },
         footer: {
-            product: "A AlgoraX Product",
-            copyright: "© 2026 AlgoraX. All rights reserved."
+            product: "An AlgoraX product",
+            copyright: "© 2026 AlgoraX. All rights reserved.",
+            contact: "Contact:"
         },
         modal: {
-            title: "Book a Demo",
-            desc: "See how RouteGeniusAI can optimize your sales routes and boost team performance.",
+            title: "Get in Touch",
+            close: "Close",
+            types: {
+                general: "General Inquiry",
+                demo: "Book a Demo"
+            },
             labels: {
                 firstName: "First Name",
                 lastName: "Last Name",
                 email: "Work Email",
+                phone: "Phone (optional)",
                 company: "Company Name",
-                job: "Job Title",
-                size: "Team Size"
+                location: "Location (optional)",
+                job: "Job Title (optional)",
+                size: "Team Size (optional)",
+                message: "Message"
+            },
+            placeholders: {
+                firstName: "Jane",
+                lastName: "Doe",
+                email: "jane@company.com",
+                phone: "+1 234 567 890",
+                company: "Acme Inc.",
+                location: "New York, USA",
+                job: "VP Sales",
+                size: "10",
+                message: "How can we help you?"
             },
             submit: "Request Demo",
+            submitGeneral: "Send Message",
+            sending: "Sending...",
+            error: "Something went wrong. Please try again or email us at info@algoraxco.com.",
             success: {
                 title: "Request Sent!",
-                desc: "Thanks for your interest. A confirmation has been sent to info@algoraxco.com. One of our AI specialists will reach out to you within 24 hours.",
+                desc: "Thanks for reaching out. Our team will reply to your email within one business day.",
+                direct: "Direct contact:",
                 close: "Close"
             }
         }
     },
     ar: {
+        meta: {
+            title: "AlgoraX | حلول الذكاء الاصطناعي والبرمجيات للشركات الناشئة",
+            description: "تبني AlgoraX برمجيات مدعومة بالذكاء الاصطناعي للشركات الناشئة والنامية: استشارات تقنية، ودمج الذكاء الاصطناعي، وتطوير مخصص، وبنية سحابية، ومنصة Reach لتحسين مسارات المبيعات."
+        },
         nav: {
             solutions: "حلول",
             products: "منتجات",
-            mission: "مهمتنا",
+            howItWorks: "كيف يعمل",
             contact: "تواصل معنا",
-            partner: "شاركنا النجاح"
+            partner: "شاركنا النجاح",
+            openMenu: "فتح القائمة",
+            closeMenu: "إغلاق القائمة",
+            switchLanguage: "Switch to English"
         },
         algoraHero: {
-            badge: "توسيع نطاق شركات المستقبل",
+            badge: "شريكك التقني للشركات الناشئة",
             titleStart: "حلول تقنية",
             titleEnd: "للشركات الناشئة.",
             description: "AlgoraX توفر البنية التحتية التكنولوجية للمؤسسين أصحاب الرؤى. من دمج الذكاء الاصطناعي إلى البنية القابلة للتوسع، نبني الأدوات التي تبني المستقبل.",
@@ -124,31 +161,34 @@ export const translations = {
             items: [
                 { title: "الاستشارات التقنية", desc: "نساعدك في اختيار التقنيات المناسبة، والتحقق من بنيتك، والتخطيط للتوسع قبل كتابة سطر واحد من الكود." },
                 { title: "دمج الذكاء الاصطناعي", desc: "قم بتضمين أحدث نماذج اللغة والذكاء التنبؤي في منتجك الحالي لتكتسب ميزة تنافسية." },
-                { title: "تطوير مخصص", desc: "تطوير برمجيات كامل الدورة. من النموذج الأولي إلى الطرح العام، فرقنا الهندسية جاهزة للتنفيذ." },
+                { title: "تطوير مخصص", desc: "تطوير برمجيات كامل الدورة، من النموذج الأولي إلى الإطلاق. فريقنا الهندسي جاهز للبناء معك." },
                 { title: "البنية التحتية السحابية", desc: "بدون خادم، حاويات، وتوسع تلقائي. نبني بنية تحتية تنام عندما تنام وتستيقظ عندما تنمو." }
             ]
         },
         productHeader: {
             label: "المنتج الأبرز",
-            title: "RouteGeniusAI",
+            title: "Reach",
             desc: "تطبيقنا الرائد لتحسين مسارات المبيعات."
         },
         hero: {
             badge: "الجيل القادم من الذكاء الاصطناعي للمبيعات",
             titleStart: "حسن مسارات",
             titleEnd: "مبيعاتك",
-            desc: "يمكّن RouteGeniusAI فرق المبيعات لديك من خلال الذكاء الاصطناعي التنبؤي. ضاعف الكفاءة، وحسن مسارات السفر، وأغلق الصفقات أسرع من أي وقت مضى.",
-            start: "ابدأ التجربة المجانية",
-            demo: "شاهد العرض التجريبي",
+            desc: "يمكّن Reach فرق المبيعات لديك من خلال الذكاء الاصطناعي التنبؤي. ضاعف الكفاءة، وحسن مسارات السفر، وأغلق الصفقات أسرع من أي وقت مضى.",
+            start: "احجز عرضاً توضيحياً",
+            demo: "كيف يعمل",
+            imageAlt: "لوحة تحكم Reach لمسارات المبيعات",
             stats: {
-                ai: "تحليل الذكاء الاصطناعي نشط",
-                conversion: "معدل التحويل",
-                routeEff: "كفاءة المسار",
-                active: "نشط",
-                online: "التحسين يعمل",
-                efficiency: "زيادة الكفاءة",
-                agents: "الوكلاء النشطون"
+                planning: "تخطيط المسارات",
+                planningValue: "تلقائي",
+                rerouting: "إعادة التوجيه الفورية",
+                rerouteValue: "يعمل"
             }
+        },
+        featuresHeader: {
+            titleStart: "مدعوم",
+            titleEnd: "بذكاء متقدم",
+            desc: "كل ما تحتاجه لتوسيع عمليات المبيعات، في منصة واحدة قوية."
         },
         features: [
             { title: "إنشاء مسارات المبيعات", desc: "صمم مسارات مبيعات شاملة لفريقك بأكمله في ثوانٍ وبدون جهد." },
@@ -159,48 +199,67 @@ export const translations = {
         workflow: {
             label: "كيف يعمل",
             title: "سيطر على منطقتك في 4 خطوات",
-            desc: "من التخطيط إلى الإغلاق، يرشدك RouteGeniusAI خلال يوم المبيعات المثالي.",
+            desc: "من التخطيط إلى الإغلاق، يرشدك Reach خلال يوم المبيعات المثالي.",
             steps: [
-                { title: "إنشاء مسار المبيعات", desc: "ارفع بيانات العملاء أو زامن نظام CRM الخاص بك. يرسم RouteGeniusAI المسار المثالي لفريقك بالكامل فوراً." },
+                { title: "إنشاء مسار المبيعات", desc: "ارفع بيانات العملاء أو زامن نظام CRM الخاص بك. يرسم Reach أفضل مسار لفريقك بالكامل فوراً." },
                 { title: "الإصلاح والتعديل", desc: "تحتاج إلى تغييرات في اللحظة الأخيرة؟ اسحب وأفلت المحطات، تعامل مع الإلغاءات، وأعد التوجيه فوراً." },
-                { title: "تحسين الكفاءة", desc: "يحسب ذكاؤنا الاصطناعي المسار الأسرع على الإطلاق. قلل وقت القيادة بنسبة 30% وأضف اجتماعين إضافيين يومياً." },
-                { title: "اكتشاف الفرص", desc: "لا تقد بجانب المال. ينبهك RouteGeniusAI إلى العملاء المحتملين على طول مسارك النشط." }
+                { title: "تحسين الكفاءة", desc: "يحسب ذكاؤنا الاصطناعي أسرع مسار بين محطاتك، ليقضي فريقك وقتاً أقل في القيادة ووقتاً أكثر في الاجتماعات." },
+                { title: "اكتشاف الفرص", desc: "لا تقد بجانب المال. ينبهك Reach إلى العملاء المحتملين على طول مسارك النشط." }
             ]
         },
         testimonials: {
             title: "موثوق من قادة الصناعة",
-            items: [
-                { name: "سارة جينكينز", role: "نائب رئيس المبيعات، تيك كورب", content: "غّير RouteGeniusAI تماماً طريقة تخطيطنا لمناطقنا. شهدنا زيادة بنسبة 30% في الاجتماعات المحجوزة خلال الشهر الأول." },
-                { name: "مايكل تشين", role: "مدير ميداني، سولار ون", content: "تحسين المسار سحري. يقضي ممثلونا وقتاً أقل في القيادة ووقتاً أكثر في البيع. إنه يسدد تكلفته 10 أضعاف." },
-                { name: "إيلينا رودريغيز", role: "مدير الإيرادات، غروث فلو", content: "وأخيراً، أداة ذكاء اصطناعي تفي بوعودها حقاً. دقة تقييم العملاء المحتملين مخيفة." }
-            ]
+            items: []
         },
         cta: {
-            title: "جاهز لثورة في مبيعاتك؟",
-            desc: "انضم إلى أكثر من 500 شركة متطورة تستخدم RouteGeniusAI لتحطيم أرقامها وتحسين كل ميل.",
-            primary: "ابدأ الآن",
-            secondary: "احجز عرضاً توضيحياً",
-            note: "لا بطاقة ائتمان مطلوبة للتجربة لمدة 14 يوماً."
+            title: "جاهز لتطوير مسارات مبيعاتك؟",
+            desc: "اكتشف كيف يساعد Reach فريقك الميداني على تخطيط مسارات أذكى، والتكيف فوراً، وقضاء وقت أطول في البيع.",
+            primary: "احجز عرضاً توضيحياً",
+            secondary: "أرسل لنا رسالة",
+            note: "نرد خلال يوم عمل واحد."
         },
         footer: {
             product: "منتج من AlgoraX",
-            copyright: "© 2026 AlgoraX. جميع الحقوق محفوظة."
+            copyright: "© 2026 AlgoraX. جميع الحقوق محفوظة.",
+            contact: "تواصل:"
         },
         modal: {
-            title: "احجز عرضاً توضيحياً",
-            desc: "شاهد كيف يمكن لـ RouteGeniusAI تحسين مسارات مبيعاتك وتعزيز أداء فريقك.",
+            title: "تواصل معنا",
+            close: "إغلاق",
+            types: {
+                general: "استفسار عام",
+                demo: "احجز عرضاً توضيحياً"
+            },
             labels: {
                 firstName: "الاسم الأول",
                 lastName: "اسم العائلة",
                 email: "بريد العمل",
+                phone: "الهاتف (اختياري)",
                 company: "اسم الشركة",
-                job: "المسمى الوظيفي",
-                size: "حجم الفريق"
+                location: "الموقع (اختياري)",
+                job: "المسمى الوظيفي (اختياري)",
+                size: "حجم الفريق (اختياري)",
+                message: "الرسالة"
+            },
+            placeholders: {
+                firstName: "الاسم",
+                lastName: "العائلة",
+                email: "name@company.com",
+                phone: "+966 5X XXX XXXX",
+                company: "اسم شركتك",
+                location: "الرياض، السعودية",
+                job: "مدير المبيعات",
+                size: "10",
+                message: "كيف يمكننا مساعدتك؟"
             },
             submit: "طلب عرض توضيحي",
+            submitGeneral: "إرسال الرسالة",
+            sending: "جارٍ الإرسال...",
+            error: "حدث خطأ ما. يرجى المحاولة مرة أخرى أو مراسلتنا على info@algoraxco.com.",
             success: {
                 title: "تم إرسال الطلب!",
-                desc: "شكراً لاهتمامك. تم إرسال تأكيد إلى info@algoraxco.com. سيتواصل معك أحد متخصصي الذكاء الاصطناعي لدينا خلال 24 ساعة.",
+                desc: "شكراً لتواصلك. سيرد فريقنا على بريدك الإلكتروني خلال يوم عمل واحد.",
+                direct: "تواصل مباشر:",
                 close: "إغلاق"
             }
         }

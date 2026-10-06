@@ -17,7 +17,7 @@ const Services = () => {
     ];
 
     return (
-        <section id="solutions" className="py-12 md:py-24 bg-dark relative border-t border-white/5 overflow-hidden">
+        <section id="solutions" className="scroll-mt-20 py-12 md:py-24 bg-dark relative border-t border-white/5 overflow-hidden">
             {/* Animated Logo Accent */}
             <Motion.div
                 animate={{
@@ -26,9 +26,9 @@ const Services = () => {
                     opacity: [0.05, 0.1, 0.05]
                 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -right-20 top-20 pointer-events-none"
+                className="absolute -right-20 top-20 pointer-events-none" aria-hidden="true"
             >
-                <Logo className="w-40 h-40 md:w-80 md:h-80" glow={false} />
+                <Logo className="w-40 h-40 md:w-80 md:h-80" decorative />
             </Motion.div>
 
             <div className="container mx-auto px-4 md:px-6">
@@ -51,7 +51,7 @@ const Services = () => {
                             transition={{ delay: index * 0.1 }}
                         >
                             <MagicCard className="p-6 md:p-8 h-full bg-black/40 backdrop-blur-md">
-                                <div className="mb-4 md:mb-6 p-3 md:p-4 bg-primary/10 rounded-xl w-fit text-primary group-hover:bg-primary group-hover:text-black transition-all">
+                                <div aria-hidden="true" className="mb-4 md:mb-6 p-3 md:p-4 bg-primary/10 rounded-xl w-fit text-primary group-hover:bg-primary group-hover:text-black transition-all">
                                     {icons[index]}
                                 </div>
                                 <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">{item.title}</h3>

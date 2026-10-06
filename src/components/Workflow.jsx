@@ -22,7 +22,7 @@ const Workflow = () => {
     ];
 
     return (
-        <section id="solutions" className="py-24 bg-dark relative overflow-hidden">
+        <section id="how-it-works" className="py-24 scroll-mt-20 bg-dark relative overflow-hidden">
             {/* Animated Logo Accent */}
             <Motion.div
                 animate={{
@@ -31,9 +31,9 @@ const Workflow = () => {
                     opacity: [0.04, 0.09, 0.04]
                 }}
                 transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute right-0 bottom-40 pointer-events-none"
+                className="absolute right-0 bottom-40 pointer-events-none" aria-hidden="true"
             >
-                <Logo className="w-96 h-96" glow={false} />
+                <Logo className="w-96 h-96" decorative />
             </Motion.div>
 
             {/* Background Elements */}
@@ -68,7 +68,7 @@ const Workflow = () => {
                                 transition={{ duration: 0.6, delay: 0.2 }}
                                 className={`md:w-5/12 text-center ${index % 2 === 0 ? 'md:text-right rtl:md:text-left' : 'md:text-left rtl:md:text-right'} mb-8 md:mb-0`}
                             >
-                                <div className={`inline-flex mb-3 md:hidden p-3 rounded-full bg-gradient-to-br ${colors[index]} shadow-lg text-black`}>
+                                <div aria-hidden="true" className={`inline-flex mb-3 md:hidden p-3 rounded-full bg-gradient-to-br ${colors[index]} shadow-lg text-black`}>
                                     {icons[index]}
                                 </div>
                                 <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
@@ -81,6 +81,7 @@ const Workflow = () => {
                                 whileInView={{ scale: 1, opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5 }}
+                                aria-hidden="true"
                                 className="hidden md:flex relative z-10 w-16 h-16 rounded-full bg-dark border-4 border-dark-acc items-center justify-center shadow-2xl"
                             >
                                 <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${colors[index]} opacity-20 blur-md`}></div>
@@ -101,7 +102,7 @@ const Workflow = () => {
                         viewport={{ once: true }}
                         className="flex justify-center mt-8"
                     >
-                        <div className="animate-bounce text-primary/50">
+                        <div className="animate-bounce text-primary/50" aria-hidden="true">
                             <ArrowDown size={32} />
                         </div>
                     </Motion.div>

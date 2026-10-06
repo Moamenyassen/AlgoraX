@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment secrets (EmailJS keys)
+.env
+.env.*
+
+# Release archives
+*.zip
+*.bundle

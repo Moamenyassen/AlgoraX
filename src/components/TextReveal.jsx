@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { useReducedMotion } from 'framer-motion';
 
+const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+const LATIN_ONLY = /^[\x20-\x7E]*$/;
+
+// Scrambles Latin text into place. Screen readers always get the real text, and
+// non-Latin text (e.g. Arabic) or reduced-motion users see the final text immediately.
 const TextReveal = ({ text, className = "" }) => {
-    const [displayText, setDisplayText] = useState("");
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+    const reduceMotion = useReducedMotion();
+    const animate = Boolean(text) && !reduceMotion && LATIN_ONLY.test(text);
+    const [displayText, setDisplayText] = useState(text);
 
     useEffect(() => {
-        if (!text) return; // Guard clause
+        if (!animate) return;
 
         let iterations = 0;
         const interval = setInterval(() => {
             setDisplayText(
                 text
                     .split("")
-                    .map((letter, index) => {
-                        if (index < iterations) {
-                            return text[index];
-                        }
-                        return chars[Math.floor(Math.random() * chars.length)];
-                    })
+                    .map((letter, index) => (index < iterations ? letter : CHARS[Math.floor(Math.random() * CHARS.length)]))
                     .join("")
             );
 
@@ -28,13 +30,16 @@ const TextReveal = ({ text, className = "" }) => {
         }, 30);
 
         return () => clearInterval(interval);
-    }, [text]);
+    }, [text, animate]);
 
     if (!text) return null;
 
     return (
-        <span className={`font-mono ${className}`}>
-            {displayText}
+        <span className={className}>
+            <span className="sr-only">{text}</span>
+            <span aria-hidden="true" className={animate ? "font-mono" : undefined}>
+                {animate ? displayText : text}
+            </span>
         </span>
     );
 };

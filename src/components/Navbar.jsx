@@ -14,7 +14,7 @@ const Navbar = ({ onOpenDemo }) => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -23,34 +23,36 @@ const Navbar = ({ onOpenDemo }) => {
     const navItems = [
         { key: 'solutions', label: t.nav.solutions },
         { key: 'products', label: t.nav.products },
-        { key: 'mission', label: t.nav.mission },
+        { key: 'how-it-works', label: t.nav.howItWorks },
         { key: 'contact', label: t.nav.contact },
     ];
+
+    const languageButton = (
+        <button
+            type="button"
+            onClick={toggleLanguage}
+            aria-label={t.nav.switchLanguage}
+            lang={language === 'en' ? 'ar' : 'en'}
+            className="text-gray-300 hover:text-white transition-colors flex items-center gap-1 p-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        >
+            <Globe aria-hidden="true" size={18} />
+            <span className="text-sm font-medium">{language === 'en' ? 'عربي' : 'EN'}</span>
+        </button>
+    );
 
     return (
         <Motion.nav
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-dark/80 backdrop-blur-md border-b border-primary/20 py-3' : 'bg-transparent py-5'
+            aria-label="Main"
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'bg-dark/90 backdrop-blur-md border-b border-primary/20 py-3' : 'bg-transparent py-5'
                 }`}
         >
             <div className="container mx-auto px-6 flex justify-between items-center">
-                <div className="flex items-center space-x-4 cursor-pointer rtl:space-x-reverse group relative">
-                    <div className="relative">
-                        <Logo className="w-20 h-20" />
-                        {/* Magic Sparkles */}
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full animate-sparkle" />
-                        <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-secondary rounded-full animate-sparkle delay-700" />
-                    </div>
-                    <span className="text-3xl font-black tracking-tighter uppercase relative">
-                        <span className="text-white">Algora</span>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary animate-gradient-x">X</span>
-
-                        {/* Hidden Shimmer Layer */}
-                        <span className="absolute inset-0 text-white/20 blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500">AlgoraX</span>
-                    </span>
-                </div>
+                <a href="#top" className="flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                    <Logo />
+                </a>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse" onMouseLeave={() => setHoveredTab(null)}>
@@ -59,7 +61,7 @@ const Navbar = ({ onOpenDemo }) => {
                             key={item.key}
                             href={`#${item.key}`}
                             onMouseEnter={() => setHoveredTab(item.key)}
-                            className="relative px-3 py-1.5 text-sm font-medium uppercase tracking-wide text-gray-300 hover:text-white transition-colors z-[1]"
+                            className="relative px-3 py-1.5 text-sm font-medium uppercase tracking-wide text-gray-300 hover:text-white transition-colors z-[1] rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                         >
                             {hoveredTab === item.key && (
                                 <Motion.div
@@ -72,34 +74,31 @@ const Navbar = ({ onOpenDemo }) => {
                         </a>
                     ))}
 
-                    <button
-                        onClick={toggleLanguage}
-                        className="text-gray-400 hover:text-white transition-colors flex items-center gap-1"
-                    >
-                        <Globe size={18} />
-                        <span className="text-sm font-medium uppercase">{language === 'en' ? 'AR' : 'EN'}</span>
-                    </button>
+                    {languageButton}
 
-                    <Button variant="primary" onClick={onOpenDemo}>{t.nav.partner}</Button>
+                    <Button variant="primary" onClick={() => onOpenDemo('general')}>{t.nav.partner}</Button>
                 </div>
 
                 {/* Mobile Toggle */}
                 <div className="md:hidden flex items-center gap-4">
+                    {languageButton}
                     <button
-                        onClick={toggleLanguage}
-                        className="text-gray-400 hover:text-white transition-colors flex items-center gap-1"
+                        type="button"
+                        className="text-white p-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label={isOpen ? t.nav.closeMenu : t.nav.openMenu}
+                        aria-expanded={isOpen}
+                        aria-controls="mobile-menu"
                     >
-                        <span className="text-sm font-bold uppercase">{language === 'en' ? 'AR' : 'EN'}</span>
+                        {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
                     </button>
-                    <div className="text-white cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-                        {isOpen ? <X /> : <Menu />}
-                    </div>
                 </div>
             </div>
 
             {/* Mobile Menu */}
             {isOpen && (
                 <Motion.div
+                    id="mobile-menu"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     className="md:hidden bg-dark-acc border-t border-gray-800"
@@ -115,7 +114,7 @@ const Navbar = ({ onOpenDemo }) => {
                                 {item.label}
                             </a>
                         ))}
-                        <Button variant="primary" className="w-full text-center" onClick={() => { setIsOpen(false); onOpenDemo(); }}>{t.nav.partner}</Button>
+                        <Button variant="primary" className="w-full text-center" onClick={() => { setIsOpen(false); onOpenDemo('general'); }}>{t.nav.partner}</Button>
                     </div>
                 </Motion.div>
             )}

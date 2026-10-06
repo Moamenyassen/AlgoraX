@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import AlgoraHero from './components/AlgoraHero';
 import Services from './components/Services';
@@ -13,40 +14,46 @@ import { useLanguage } from './hooks/useLanguage';
 import ScrollProgress from './components/ScrollProgress';
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modal, setModal] = useState({ isOpen: false, type: 'demo', key: 0 });
   const { t } = useLanguage();
 
-  const openDemo = () => setIsModalOpen(true);
+  // type: 'demo' or 'general'. A new key gives the form a fresh state each time it opens.
+  const openModal = (type = 'demo') => setModal((m) => ({ isOpen: true, type, key: m.key + 1 }));
+  const closeModal = useCallback(() => setModal((m) => ({ ...m, isOpen: false })), []);
 
   return (
-    <div className="min-h-screen bg-dark text-white selection:bg-primary/30">
-      <ScrollProgress />
-      <Navbar onOpenDemo={openDemo} />
+    <MotionConfig reducedMotion="user">
+      <div id="top" className="min-h-screen bg-dark text-white selection:bg-primary/30">
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-primary focus:text-black focus:px-4 focus:py-2 focus:rounded-full">
+          Skip to content
+        </a>
+        <ScrollProgress />
+        <Navbar onOpenDemo={openModal} />
 
-      <main>
-        {/* 1. Corporate Introduction */}
-        <AlgoraHero />
-        <Services />
+        <main id="main">
+          {/* 1. Corporate Introduction */}
+          <AlgoraHero />
+          <Services />
 
-        {/* 2. Flagship Product: RouteGeniusAI */}
-        <div id="products" className="relative pt-24 pb-12 bg-dark-acc border-t border-white/5">
-          <div className="container mx-auto px-6 text-center">
-            <span className="text-secondary text-sm font-bold tracking-widest uppercase mb-4 block">{t.productHeader.label}</span>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">{t.productHeader.title}</h2>
-            <p className="text-gray-400 max-w-xl mx-auto">{t.productHeader.desc}</p>
+          {/* 2. Flagship Product: Reach */}
+          <div id="products" className="relative pt-24 pb-12 bg-dark-acc border-t border-white/5 scroll-mt-16">
+            <div className="container mx-auto px-6 text-center">
+              <span className="text-secondary text-sm font-bold tracking-widest uppercase mb-4 block">{t.productHeader.label}</span>
+              <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">{t.productHeader.title}</h2>
+              <p className="text-gray-300 max-w-xl mx-auto">{t.productHeader.desc}</p>
+            </div>
           </div>
-        </div>
 
-        <Hero onOpenDemo={openDemo} />
-        <Features />
-        <Workflow />
-        <Testimonials />
-        <CallToAction onOpenDemo={openDemo} />
-
-      </main>
-      <Footer />
-      <DemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </div>
+          <Hero onOpenDemo={openModal} />
+          <Features />
+          <Workflow />
+          <Testimonials />
+          <CallToAction onOpenDemo={openModal} />
+        </main>
+        <Footer />
+        <DemoModal key={modal.key} isOpen={modal.isOpen} initialType={modal.type} onClose={closeModal} />
+      </div>
+    </MotionConfig>
   );
 }
 

@@ -3,7 +3,7 @@ import { motion as Motion } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import { ArrowDown, Rocket, Code, Brain } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
-import NeuralBackground from './NeuralBackground';
+import neuralBg from '../assets/neural-bg.webp';
 import TextReveal from './TextReveal';
 
 const AlgoraHero = () => {
@@ -11,10 +11,16 @@ const AlgoraHero = () => {
 
     return (
         <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden pt-12 md:pt-20 bg-dark">
-            {/* Abstract Background - Kept for depth, Neural added on top */}
-            <div className="absolute inset-0 z-0">
-                <div className="absolute top-0 right-0 w-[60%] h-[60%] bg-primary/10 rounded-full blur-[100px] md:blur-[150px]" />
-                <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-secondary/10 rounded-full blur-[100px] md:blur-[150px]" />
+            {/* Neural Background with Overlay */}
+            <div className="absolute inset-0 z-0" aria-hidden="true">
+                <img
+                    src={neuralBg}
+                    alt=""
+                    fetchpriority="high"
+                    className="w-full h-full object-cover opacity-60 mix-blend-screen"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-dark via-transparent to-dark" />
+                <div className="absolute inset-0 bg-dark/30 backdrop-blur-[2px]" />
             </div>
 
             <div className="container mx-auto px-4 md:px-6 z-10 text-center relative">
@@ -28,8 +34,8 @@ const AlgoraHero = () => {
                     <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 via-white/5 to-secondary/20 blur-sm -z-10 animate-pulse" />
                     <div className="absolute inset-0 rounded-3xl border border-white/10 -z-10" />
 
-                    <div className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-primary/10 border border-primary/20 rounded-full px-4 md:px-6 py-2 mb-6 md:mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(0,240,255,0.2)]">
-                        <Rocket size={16} className="text-primary animate-bounce md:w-[18px] md:h-[18px]" />
+                    <div className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-primary/10 border border-primary/20 rounded-full px-4 md:px-6 py-2 mb-6 md:mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+                        <Rocket aria-hidden="true" size={16} className="text-primary animate-bounce md:w-[18px] md:h-[18px]" />
                         <span className="text-white text-xs md:text-sm font-bold tracking-widest uppercase">{t.algoraHero.badge}</span>
                     </div>
 
@@ -37,10 +43,10 @@ const AlgoraHero = () => {
                         <div className="relative inline-block">
                             <TextReveal text={t.algoraHero.titleStart} className="block mb-2" />
                             {/* Floating highlight */}
-                            <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 blur-2xl rounded-full" />
+                            <div aria-hidden="true" className="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 blur-2xl rounded-full" />
                         </div>
                         <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-secondary drop-shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-secondary drop-shadow-[0_0_20px_rgba(34,211,238,0.4)]">
                             {t.algoraHero.titleEnd}
                         </span>
                     </h1>
@@ -50,12 +56,12 @@ const AlgoraHero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8">
-                        <MagneticButton variant="primary" className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 text-lg md:text-xl font-bold uppercase tracking-wider rounded-2xl shadow-[0_0_40px_rgba(0,240,255,0.4)] hover:shadow-[0_0_60px_rgba(0,240,255,0.6)]">
+                        <MagneticButton href="#solutions" variant="primary" className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 text-lg md:text-xl font-bold uppercase tracking-wider rounded-2xl shadow-[0_0_40px_rgba(34,211,238,0.4)] hover:shadow-[0_0_60px_rgba(34,211,238,0.6)]">
                             {t.algoraHero.explore}
                         </MagneticButton>
                         <a href="#products" className="group text-gray-400 hover:text-primary transition-all duration-300 flex items-center gap-3 rtl:flex-row-reverse text-base md:text-lg font-medium">
                             {t.algoraHero.viewProducts}
-                            <ArrowDown size={18} className="group-hover:translate-y-1 transition-transform md:w-[20px] md:h-[20px]" />
+                            <ArrowDown aria-hidden="true" size={18} className="group-hover:translate-y-1 transition-transform md:w-[20px] md:h-[20px]" />
                         </a>
                     </div>
                 </Motion.div>
@@ -65,6 +71,7 @@ const AlgoraHero = () => {
                     animate={{ y: [-10, 10, -10] }}
                     transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
                     className="absolute top-1/4 left-[10%] opacity-20 hidden lg:block"
+                    aria-hidden="true"
                 >
                     <Code size={64} className="text-primary" />
                 </Motion.div>
@@ -72,6 +79,7 @@ const AlgoraHero = () => {
                     animate={{ y: [10, -10, 10] }}
                     transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
                     className="absolute bottom-1/4 right-[10%] opacity-20 hidden lg:block"
+                    aria-hidden="true"
                 >
                     <Brain size={64} className="text-secondary" />
                 </Motion.div>

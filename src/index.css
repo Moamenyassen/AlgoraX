@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #0a0a0a;
+  background-color: #020617;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,8 +16,14 @@
 }
 
 ::selection {
-  background: #00f0ff; /* Primary Cyan */
+  background: #22d3ee;
+  /* Primary Cyan */
   color: #000;
+}
+
+/* Arabic text uses an Arabic typeface */
+:lang(ar) {
+  font-family: 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
 }
 
 html {
@@ -26,8 +32,6 @@ html {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
@@ -53,7 +57,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
+  background: #22d3ee;
 }
 
 /* 3D Perspective Utils */
@@ -115,7 +119,7 @@ body {
 
 /* Gradient Text Utilities */
 .text-gradient-ai {
-  background: linear-gradient(to right, #00f0ff, #bd00ff);
+  background: linear-gradient(to right, #22d3ee, #a855f7);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -123,10 +127,13 @@ body {
 
 /* New Magic Animations */
 @keyframes gradient-x {
-  0%, 100% {
+
+  0%,
+  100% {
     background-size: 200% 200%;
     background-position: left center;
   }
+
   50% {
     background-size: 200% 200%;
     background-position: right center;
@@ -138,10 +145,13 @@ body {
 }
 
 @keyframes sparkle {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(0) rotate(0deg);
     opacity: 0;
   }
+
   50% {
     transform: scale(1) rotate(180deg);
     opacity: 1;
@@ -150,4 +160,19 @@ body {
 
 .animate-sparkle {
   animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Respect the system "reduce motion" setting */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

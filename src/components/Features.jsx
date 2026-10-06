@@ -48,9 +48,10 @@ const TiltCard = ({ feature, index }) => {
                 rotateY,
                 transformStyle: "preserve-3d",
             }}
-            className="relative p-8 rounded-2xl bg-white/5 border border-white/5 transition-all duration-300 group hover:shadow-[0_0_30px_rgba(0,240,255,0.15)]"
+            className="relative p-8 rounded-2xl bg-white/5 border border-white/5 transition-all duration-300 group hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]"
         >
             <div
+                aria-hidden="true"
                 style={{ transform: "translateZ(30px)" }}
                 className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-black transition-colors"
             >
@@ -88,9 +89,9 @@ const Features = () => {
                     opacity: [0.03, 0.08, 0.03]
                 }}
                 transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -left-32 bottom-0 pointer-events-none"
+                className="absolute -left-32 bottom-0 pointer-events-none" aria-hidden="true"
             >
-                <Logo className="w-48 h-48 md:w-96 md:h-96" glow={false} />
+                <Logo className="w-48 h-48 md:w-96 md:h-96" decorative />
             </Motion.div>
 
             <div className="container mx-auto px-4 md:px-6">
@@ -102,10 +103,10 @@ const Features = () => {
                             viewport={{ once: true }}
                             className="text-3xl lg:text-5xl font-bold text-white mb-3 md:mb-4"
                         >
-                            Powered by <span className="text-primary">Advanced Intelligence</span>
+                            {t.featuresHeader.titleStart} <span className="text-primary">{t.featuresHeader.titleEnd}</span>
                         </Motion.h2>
                         <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-                            Everything you need to scale your sales operations, packed into one powerful platform.
+                            {t.featuresHeader.desc}
                         </p>
                     </div>
                 </SectionReveal>

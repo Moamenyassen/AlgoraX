@@ -1,44 +1,30 @@
-# AlgoraX - AI Sales Optimization Platform
+# AlgoraX
 
-Welcome to the AlgoraX landing page project. This is a modern, high-performance website built with React, Vite, and Tailwind CSS.
+Company website for AlgoraX and its flagship product, **Reach** (AI sales route optimization). Built with React 19, Vite, Tailwind CSS and Framer Motion, in English and Arabic.
 
-## Features
+## Develop
 
-- **Modern Tech Stack**: React 19, Vite, Tailwind CSS 3.
-- **Animations**: Powered by Framer Motion.
-- **Icons**: Lucide React.
-- **Design**: Fully responsive, dark-mode "Premium AI" aesthetic with glassmorphism effects.
+```bash
+npm install
+npm run dev      # local dev server
+npm run lint
+npm run build    # production build in dist/
+```
 
-## Getting Started
+## Contact form
 
-### Prerequisites
+The form sends through EmailJS. Create a `.env` file (it is git-ignored) with:
 
-- Node.js (v18+ recommended)
-- npm
+```
+VITE_EMAILJS_SERVICE_ID=...
+VITE_EMAILJS_TEMPLATE_ID=...
+VITE_EMAILJS_PUBLIC_KEY=...
+```
 
-### Installation
+## Content
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+All text, in both languages, lives in `src/data/translations.js`. Testimonials stay hidden until real quotes are added to `testimonials.items`.
 
-2. Start the development server:
-   ```bash
-   npm run dev
-   ```
+## Deploy
 
-3. Build for production:
-   ```bash
-   npm run build
-   ```
-
-## Project Structure
-
-- `src/components`: Contains all UI components (Navbar, Hero, Features, etc.)
-- `src/App.jsx`: Main entry point assembling the page.
-- `tailwind.config.js`: Tailwind configuration including custom colors and fonts.
-
-## Customization
-
-You can adjust the theme colors in `tailwind.config.js` under `theme.extend.colors`.
+`npm run build`, then upload the contents of `dist/` to the web root (`public_html` on Hostinger). The `deploy` branch of this repo always holds the latest built site.
