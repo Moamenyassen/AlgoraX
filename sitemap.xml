@@ -3,11 +3,71 @@
   <url>
     <loc>https://algoraxco.com/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/" />
   </url>
   <url>
-    <loc>https://algoraxco.com/?lang=ar</loc>
+    <loc>https://algoraxco.com/ar/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/reach/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/reach/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/reach/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/ar/reach/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/reach/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/reach/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/mindo/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/mindo/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/mindo/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/ar/mindo/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/mindo/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/mindo/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/solutions/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/solutions/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/ar/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/solutions/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/solutions/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/about/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/about/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/ar/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/about/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/about/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/contact/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/contact/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/ar/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/contact/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/contact/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/privacy/" />
+  </url>
+  <url>
+    <loc>https://algoraxco.com/ar/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algoraxco.com/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://algoraxco.com/ar/privacy/" />
   </url>
 </urlset>
