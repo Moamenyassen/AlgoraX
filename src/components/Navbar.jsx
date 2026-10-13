@@ -1,124 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import { motion as Motion } from 'framer-motion';
-import Button from './Button';
-import Logo from './Logo';
-import { Menu, X, Globe } from 'lucide-react';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import Brand from './Brand';
 import { useLanguage } from '../hooks/useLanguage';
 
-const Navbar = ({ onOpenDemo }) => {
-    const [scrolled, setScrolled] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const { t, language, toggleLanguage } = useLanguage();
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const [hoveredTab, setHoveredTab] = useState(null);
-
-    const navItems = [
-        { key: 'solutions', label: t.nav.solutions },
-        { key: 'products', label: t.nav.products },
-        { key: 'how-it-works', label: t.nav.howItWorks },
-        { key: 'contact', label: t.nav.contact },
+const Navbar = () => {
+    const { t, href, page, language } = useLanguage();
+    const [open, setOpen] = useState(false);
+    const other = language === 'en' ? 'ar' : 'en';
+    const links = [
+        { page: 'reach', label: 'Reach' },
+        { page: 'mindo', label: 'Mindo' },
+        { page: 'solutions', label: t.nav.solutions },
+        { page: 'about', label: t.nav.about },
+        { page: 'contact', label: t.nav.contact },
     ];
-
-    const languageButton = (
-        <button
-            type="button"
-            onClick={toggleLanguage}
-            aria-label={t.nav.switchLanguage}
-            lang={language === 'en' ? 'ar' : 'en'}
-            className="text-gray-300 hover:text-white transition-colors flex items-center gap-1 p-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-        >
-            <Globe aria-hidden="true" size={18} />
-            <span className="text-sm font-medium">{language === 'en' ? 'عربي' : 'EN'}</span>
-        </button>
-    );
+    const linkClass = (p) => `rounded-md px-1 py-1 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet ${page === p ? 'text-ink font-medium' : 'text-[#4b4664]'}`;
 
     return (
-        <Motion.nav
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
-            aria-label="Main"
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'bg-dark/90 backdrop-blur-md border-b border-primary/20 py-3' : 'bg-transparent py-5'
-                }`}
-        >
-            <div className="container mx-auto px-6 flex justify-between items-center">
-                <a href="#top" className="flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                    <Logo />
+        <header className="sticky top-0 z-40 border-b border-line/70 bg-mist/85 backdrop-blur">
+            <nav className="container-x flex h-16 items-center gap-6" aria-label="Main">
+                <a href={href('home')} aria-label={t.nav.home} className="me-auto rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet">
+                    <Brand />
                 </a>
-
-                {/* Desktop Menu */}
-                <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse" onMouseLeave={() => setHoveredTab(null)}>
-                    {navItems.map((item) => (
-                        <a
-                            key={item.key}
-                            href={`#${item.key}`}
-                            onMouseEnter={() => setHoveredTab(item.key)}
-                            className="relative px-3 py-1.5 text-sm font-medium uppercase tracking-wide text-gray-300 hover:text-white transition-colors z-[1] rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                        >
-                            {hoveredTab === item.key && (
-                                <Motion.div
-                                    layoutId="navbar-spotlight"
-                                    className="absolute inset-0 bg-white/10 rounded-full -z-[1] blur-sm"
-                                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                />
-                            )}
-                            {item.label}
-                        </a>
+                <ul className="hidden items-center gap-6 text-[15px] md:flex">
+                    {links.map((l) => (
+                        <li key={l.page}><a href={href(l.page)} className={linkClass(l.page)} aria-current={page === l.page ? 'page' : undefined}>{l.label}</a></li>
                     ))}
-
-                    {languageButton}
-
-                    <Button variant="primary" onClick={() => onOpenDemo('general')}>{t.nav.partner}</Button>
-                </div>
-
-                {/* Mobile Toggle */}
-                <div className="md:hidden flex items-center gap-4">
-                    {languageButton}
-                    <button
-                        type="button"
-                        className="text-white p-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                        onClick={() => setIsOpen(!isOpen)}
-                        aria-label={isOpen ? t.nav.closeMenu : t.nav.openMenu}
-                        aria-expanded={isOpen}
-                        aria-controls="mobile-menu"
-                    >
-                        {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-                    </button>
-                </div>
-            </div>
-
-            {/* Mobile Menu */}
-            {isOpen && (
-                <Motion.div
-                    id="mobile-menu"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    className="md:hidden bg-dark-acc border-t border-gray-800"
+                    <li><a href={href(page === 'notFound' ? 'home' : page, other)} hrefLang={other} lang={other} aria-label={t.nav.languageLabel} className={linkClass('')}>{t.nav.language}</a></li>
+                </ul>
+                <a href={href('contact')} className="btn-dark hidden md:inline-flex">{t.nav.talk}</a>
+                <button
+                    type="button"
+                    className="rounded-md p-2 text-ink md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet"
+                    aria-expanded={open}
+                    aria-controls="mobile-menu"
+                    aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
+                    onClick={() => setOpen((o) => !o)}
                 >
-                    <div className="flex flex-col p-6 space-y-4">
-                        {navItems.map((item) => (
-                            <a
-                                key={item.key}
-                                href={`#${item.key}`}
-                                className="text-gray-300 hover:text-primary transition-colors font-medium"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {item.label}
-                            </a>
-                        ))}
-                        <Button variant="primary" className="w-full text-center" onClick={() => { setIsOpen(false); onOpenDemo('general'); }}>{t.nav.partner}</Button>
-                    </div>
-                </Motion.div>
-            )}
-        </Motion.nav>
+                    {open ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+                </button>
+            </nav>
+            <div id="mobile-menu" hidden={!open} className="border-t border-line bg-mist md:hidden">
+                <ul className="container-x grid gap-1 py-4 text-lg">
+                    {links.map((l) => (
+                        <li key={l.page}><a href={href(l.page)} className="block rounded-lg px-2 py-2 hover:bg-white" aria-current={page === l.page ? 'page' : undefined}>{l.label}</a></li>
+                    ))}
+                    <li><a href={href(page === 'notFound' ? 'home' : page, other)} hrefLang={other} lang={other} className="block rounded-lg px-2 py-2 hover:bg-white">{t.nav.language}</a></li>
+                    <li className="pt-2"><a href={href('contact')} className="btn-dark w-full">{t.nav.talk}</a></li>
+                </ul>
+            </div>
+        </header>
     );
 };
 

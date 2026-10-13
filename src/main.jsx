@@ -1,13 +1,17 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { LanguageProvider } from './context/LanguageProvider'
+import { parsePath } from './routes'
 
-createRoot(document.getElementById('root')).render(
+const { lang, page } = parsePath(window.location.pathname);
+const root = document.getElementById('root');
+const app = (
   <StrictMode>
-    <LanguageProvider>
-      <App />
-    </LanguageProvider>
-  </StrictMode>,
-)
+    <App lang={lang} page={page} />
+  </StrictMode>
+);
+
+// Built pages arrive pre-rendered, so React attaches to the existing HTML; the dev server renders from scratch.
+if (root.hasChildNodes()) hydrateRoot(root, app);
+else createRoot(root).render(app);
