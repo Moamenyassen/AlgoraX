@@ -1,9 +1,0 @@
-# Hostinger (Apache): show the designed 404 page for unknown addresses,
-# and send old ?lang=ar links to the Arabic homepage.
-ErrorDocument 404 /404.html
-
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteCond %{QUERY_STRING} (^|&)lang=ar(&|$)
-  RewriteRule ^$ /ar/? [R=301,L]
-</IfModule>

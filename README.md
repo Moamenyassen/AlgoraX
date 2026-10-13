@@ -27,8 +27,17 @@ All text, in both languages, lives in `src/data/content.js`. Email, WhatsApp num
 
 ## Pages
 
-`npm run build` pre-renders every page in both languages (`scripts/prerender.js`) into `dist/`, plus `404.html`, `sitemap.xml` and an `.htaccess` for Hostinger. Pages are listed in `src/routes.js`.
+`npm run build` pre-renders every page in both languages (`scripts/prerender.js`) into `dist/`, plus `404.html`, `sitemap.xml` and `_headers` for Cloudflare Pages. Pages are listed in `src/routes.js`.
 
 ## Deploy
 
-`npm run build`, then upload the contents of `dist/` to the web root (`public_html` on Hostinger). The `deploy` branch of this repo always holds the latest built site.
+The site is hosted on **Cloudflare Pages**, connected to this repository. Every push to `main` builds and publishes automatically.
+
+Cloudflare Pages settings:
+
+- Framework preset: None
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Environment variables: `NODE_VERSION=22`, plus the three `VITE_EMAILJS_*` keys above
+
+Cloudflare serves `dist/404.html` for unknown addresses and applies the cache rules in `public/_headers`.
