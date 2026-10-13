@@ -4,7 +4,7 @@ import { useLanguage } from '../hooks/useLanguage';
 import { contact, emailLink, phoneLink, whatsappLink } from '../data/contact';
 import Reveal from './Reveal';
 
-// The ways to reach Algora, as cards. WhatsApp and Call only show once a number is set in data/contact.js.
+// The ways to reach AlgoraX, as cards. WhatsApp and Call only show once a number is set in data/contact.js.
 // `topic` picks the pre-filled WhatsApp message (general, reach, mindo, solutions).
 const ContactChannels = ({ topic = 'general', showForm = true }) => {
     const { t, href } = useLanguage();

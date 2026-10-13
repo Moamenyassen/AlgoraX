@@ -1,6 +1,6 @@
 import { Sparkles } from 'lucide-react';
 
-// Endless strip of what Algora does. The list is doubled so the loop has no gap.
+// Endless strip of what AlgoraX does. The list is doubled so the loop has no gap.
 const Marquee = ({ items }) => (
     <div className="relative overflow-hidden border-y border-white/10 bg-white/[0.02] py-5" aria-label={items.join(', ')}>
         <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 start-0 z-10 w-24 bg-gradient-to-r from-night to-transparent rtl:bg-gradient-to-l" />

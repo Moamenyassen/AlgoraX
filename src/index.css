@@ -102,3 +102,16 @@ h1, h2, h3 { text-wrap: balance; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* The X in the AlgoraX wordmark: ribbon colours with a glow; it flashes and swings when motion is allowed. */
+.brand-x { display: inline-block; margin-inline-start: 1px; background: linear-gradient(120deg, #a594ff, #22d3ee 50%, #2fe0c4); background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 6px rgba(34, 211, 238, .7)); }
+@media (prefers-reduced-motion: no-preference) {
+  .brand-x { animation: brand-x-flow 3s linear infinite, brand-x-flash 2.4s ease-in-out infinite; transform-origin: 50% 55%; }
+  @keyframes brand-x-flow { to { background-position: 200% 0; } }
+  @keyframes brand-x-flash {
+    0%, 100% { filter: drop-shadow(0 0 4px rgba(124, 92, 255, .6)); transform: rotate(0) scale(1); }
+    45% { filter: drop-shadow(0 0 4px rgba(124, 92, 255, .6)); transform: rotate(0) scale(1); }
+    55% { filter: drop-shadow(0 0 14px rgba(34, 211, 238, 1)) drop-shadow(0 0 26px rgba(47, 224, 196, .8)); transform: rotate(90deg) scale(1.25); }
+    65% { filter: drop-shadow(0 0 8px rgba(34, 211, 238, .9)); transform: rotate(90deg) scale(1); }
+  }
+}

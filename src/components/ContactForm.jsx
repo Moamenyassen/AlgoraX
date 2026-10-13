@@ -64,7 +64,7 @@ ${data.message}
             inquiry_type: topic,
             from_name: data.name,
             first_name: data.name,
-            to_name: 'Algora Team',
+            to_name: 'AlgoraX Team',
             reply_to: data.email,
             message: body,
             message_body: body,

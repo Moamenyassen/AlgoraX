@@ -1,6 +1,6 @@
 # AlgoraX
 
-Company website for Algora and its two products, **Reach** (AI sales route planning) and **Mindo** (an ecommerce app that learns shopper behaviour). Built with React 19, Vite and Tailwind CSS, in English and Arabic (`/ar/...`).
+Company website for AlgoraX and its two products, **Reach** (AI sales route planning) and **Mindo** (an ecommerce app that learns shopper behaviour). Built with React 19, Vite and Tailwind CSS, in English and Arabic (`/ar/...`).
 
 ## Develop
 

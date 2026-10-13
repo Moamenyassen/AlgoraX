@@ -17,7 +17,7 @@ const About = () => {
                     {a.beliefs.map((b, i) => (
                         <Reveal key={b.title} delay={i * 110} className="h-full">
                             <div className="spot ring-glow relative grid h-full content-start gap-3 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-7">
-                                <span className="h-1 w-10 rounded-full bg-ribbon" aria-hidden="true" />
+                                <span className="flex items-center gap-3" aria-hidden="true"><span className="text-ribbon font-display text-4xl font-extrabold" dir="ltr">0{i + 1}</span><span className="h-1 w-10 rounded-full bg-ribbon" /></span>
                                 <h3 className="font-display text-2xl font-bold text-white">{b.title}</h3>
                                 <p className="text-fog">{b.desc}</p>
                             </div>
