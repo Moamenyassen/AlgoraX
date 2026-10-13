@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://algoraxco.com/sitemap.xml
+Sitemap: https://algorax.org/sitemap.xml
