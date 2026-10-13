@@ -3,8 +3,8 @@
 // phone: shown and dialled as written (e.g. "+966 5X XXX XXXX"). Leave empty to hide the call buttons.
 export const contact = {
     email: 'info@algoraxco.com',
-    whatsapp: '',
-    phone: '',
+    whatsapp: '966563664070',
+    phone: '+966 56 366 4070',
 };
 
 export const whatsappLink = (text) =>
