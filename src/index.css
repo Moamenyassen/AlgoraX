@@ -3,176 +3,36 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #020617;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  color-scheme: light;
+  background-color: #f7f6fb;
+  color: #17142b;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-::selection {
-  background: #22d3ee;
-  /* Primary Cyan */
-  color: #000;
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; overflow-x: hidden; font-family: "Readex Pro", system-ui, sans-serif; }
+
+/* Arabic headings use Readex Pro, which has Arabic letters; Bricolage Grotesque does not. */
+:lang(ar) .font-display { font-family: "Readex Pro", system-ui, sans-serif; letter-spacing: 0; }
+h1, h2, h3 { text-wrap: balance; }
+::selection { background: #6a47dc; color: #fff; }
+
+@layer components {
+  .eyebrow { @apply font-mono text-xs uppercase tracking-[0.08em]; }
+  :lang(ar) .eyebrow { @apply font-sans normal-case tracking-normal text-sm; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-[15px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet focus-visible:ring-offset-2; }
+  .btn-dark { @apply btn bg-ink text-white hover:bg-violet; }
+  .btn-ghost { @apply btn border border-[#c9c5d6] text-ink hover:border-ink; }
+  .container-x { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
 }
 
-/* Arabic text uses an Arabic typeface */
-:lang(ar) {
-  font-family: 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+/* The route line in the hero moves gently; nothing moves for people who turn motion off. */
+@media (prefers-reduced-motion: no-preference) {
+  .flow { stroke-dasharray: 6 10; animation: flow 3s linear infinite; }
+  @keyframes flow { to { stroke-dashoffset: -64; } }
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-#root {
-  width: 100%;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
-}
-
-/* 3D Perspective Utils */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-/* AI Magic Utilities */
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-@keyframes spin {
-  from {
-    --angle: 0deg;
-  }
-
-  to {
-    --angle: 360deg;
-  }
-}
-
-.animate-border-spin {
-  animation: spin 3s linear infinite;
-}
-
-/* Glitch Effect */
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-
-  20% {
-    transform: translate(-2px, 2px);
-  }
-
-  40% {
-    transform: translate(-2px, -2px);
-  }
-
-  60% {
-    transform: translate(2px, 2px);
-  }
-
-  80% {
-    transform: translate(2px, -2px);
-  }
-
-  100% {
-    transform: translate(0);
-  }
-}
-
-.animate-glitch {
-  animation: glitch 1s infinite linear alternate-reverse;
-}
-
-/* Gradient Text Utilities */
-.text-gradient-ai {
-  background: linear-gradient(to right, #22d3ee, #a855f7);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* New Magic Animations */
-@keyframes gradient-x {
-
-  0%,
-  100% {
-    background-size: 200% 200%;
-    background-position: left center;
-  }
-
-  50% {
-    background-size: 200% 200%;
-    background-position: right center;
-  }
-}
-
-.animate-gradient-x {
-  animation: gradient-x 3s ease infinite;
-}
-
-@keyframes sparkle {
-
-  0%,
-  100% {
-    transform: scale(0) rotate(0deg);
-    opacity: 0;
-  }
-
-  50% {
-    transform: scale(1) rotate(180deg);
-    opacity: 1;
-  }
-}
-
-.animate-sparkle {
-  animation: sparkle 2s ease-in-out infinite;
-}
-
-/* Respect the system "reduce motion" setting */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+  html { scroll-behavior: auto; }
 }
