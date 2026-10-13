@@ -79,7 +79,7 @@ export const content = {
             secondary: 'Build something with us',
             facts: [
                 { value: '2', label: 'products live' },
-                { value: 'EN + AR', label: 'from day one' },
+                { value: 'AI', label: 'inside every product' },
                 { value: 'In-house', label: 'AI, apps and cloud' },
             ],
             productsEyebrow: 'Our products',
@@ -94,7 +94,7 @@ export const content = {
             aboutTitle: 'Software should get smarter the longer you use it.',
             aboutDesc: 'That idea is behind everything we build. Our products learn from the data a business already has, so the people using them make better decisions with less effort.',
             aboutCta: 'More about us',
-            ticker: ['AI products', 'Route optimization', 'Shopper behaviour', 'Custom software', 'Arabic & English', 'Cloud & data', 'Web & mobile apps'],
+            ticker: ['AI products', 'Route optimization', 'Shopper behaviour', 'Custom software', 'Data & analytics', 'Cloud & data', 'Web & mobile apps'],
             scroll: 'Scroll',
         },
         services: [
@@ -174,7 +174,7 @@ export const content = {
             beliefsTitle: 'What we believe',
             beliefs: [
                 { title: 'Useful beats impressive', desc: 'AI is only worth adding when it saves someone time or money they can see.' },
-                { title: 'Arabic first-class', desc: 'Everything we ship works in Arabic and English, right-to-left and left-to-right.' },
+                { title: 'Built to grow with you', desc: 'We start small, prove the value, then scale the system as your business grows.' },
                 { title: 'We run what we build', desc: 'Our own products keep us honest about quality, speed and support.' },
             ],
             productsTitle: 'What we run today',
@@ -284,7 +284,7 @@ export const content = {
             secondary: 'لنبنِ مشروعك معاً',
             facts: [
                 { value: '2', label: 'منتجان يعملان' },
-                { value: 'عربي + English', label: 'من اليوم الأول' },
+                { value: 'ذكاء اصطناعي', label: 'في كل منتج' },
                 { value: 'داخلياً', label: 'ذكاء اصطناعي وتطبيقات وسحابة' },
             ],
             productsEyebrow: 'منتجاتنا',
@@ -299,7 +299,7 @@ export const content = {
             aboutTitle: 'البرمجيات الجيدة تزداد ذكاءً كلما استخدمتها.',
             aboutDesc: 'هذه الفكرة وراء كل ما نبنيه. منتجاتنا تتعلّم من البيانات الموجودة لدى الشركة أصلاً، ليتخذ مستخدموها قرارات أفضل بجهد أقل.',
             aboutCta: 'المزيد عنّا',
-            ticker: ['منتجات ذكاء اصطناعي', 'تحسين المسارات', 'سلوك المتسوقين', 'برمجيات مخصصة', 'عربي وإنجليزي', 'السحابة والبيانات', 'تطبيقات ويب وجوال'],
+            ticker: ['منتجات ذكاء اصطناعي', 'تحسين المسارات', 'سلوك المتسوقين', 'برمجيات مخصصة', 'البيانات والتحليلات', 'السحابة والبيانات', 'تطبيقات ويب وجوال'],
             scroll: 'مرّر',
         },
         services: [
@@ -379,7 +379,7 @@ export const content = {
             beliefsTitle: 'ما نؤمن به',
             beliefs: [
                 { title: 'المفيد قبل المبهر', desc: 'لا نضيف الذكاء الاصطناعي إلا إذا وفّر وقتاً أو مالاً يمكن رؤيته.' },
-                { title: 'العربية أولاً', desc: 'كل ما نطلقه يعمل بالعربية والإنجليزية، من اليمين ومن اليسار.' },
+                { title: 'ننمو معك', desc: 'نبدأ صغاراً، نثبت القيمة، ثم نوسّع النظام مع نمو عملك.' },
                 { title: 'نشغّل ما نبنيه', desc: 'منتجاتنا الخاصة تُبقينا صادقين في الجودة والسرعة والدعم.' },
             ],
             productsTitle: 'ما نشغّله اليوم',
