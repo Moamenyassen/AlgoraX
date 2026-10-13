@@ -94,6 +94,8 @@ export const content = {
             aboutTitle: 'Software should get smarter the longer you use it.',
             aboutDesc: 'That idea is behind everything we build. Our products learn from the data a business already has, so the people using them make better decisions with less effort.',
             aboutCta: 'More about us',
+            ticker: ['AI products', 'Route optimization', 'Shopper behaviour', 'Custom software', 'Arabic & English', 'Cloud & data', 'Web & mobile apps'],
+            scroll: 'Scroll',
         },
         services: [
             { key: 'ai', title: 'AI integration', desc: 'Add prediction, recommendations or assistants to the product you already have, using your own data.' },
@@ -297,6 +299,8 @@ export const content = {
             aboutTitle: 'البرمجيات الجيدة تزداد ذكاءً كلما استخدمتها.',
             aboutDesc: 'هذه الفكرة وراء كل ما نبنيه. منتجاتنا تتعلّم من البيانات الموجودة لدى الشركة أصلاً، ليتخذ مستخدموها قرارات أفضل بجهد أقل.',
             aboutCta: 'المزيد عنّا',
+            ticker: ['منتجات ذكاء اصطناعي', 'تحسين المسارات', 'سلوك المتسوقين', 'برمجيات مخصصة', 'عربي وإنجليزي', 'السحابة والبيانات', 'تطبيقات ويب وجوال'],
+            scroll: 'مرّر',
         },
         services: [
             { key: 'ai', title: 'دمج الذكاء الاصطناعي', desc: 'أضف التنبؤ أو التوصيات أو المساعدين الأذكياء إلى منتجك الحالي باستخدام بياناتك.' },

@@ -9,11 +9,11 @@ const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-const inputClass = 'w-full rounded-xl border border-line bg-white px-4 py-3 text-ink placeholder:text-[#9a95ad] focus:border-violet focus:outline-none focus:ring-2 focus:ring-violet/30';
+const inputClass = 'w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white placeholder:text-dim transition-colors focus:border-violet focus:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-violet/40 [&>option]:bg-night-2';
 
 const Field = ({ label, children, id }) => (
     <div className="grid gap-1.5">
-        <label htmlFor={id} className="text-sm font-medium text-ink">{label}</label>
+        <label htmlFor={id} className="text-sm font-medium text-fog">{label}</label>
         {children}
     </div>
 );
@@ -80,18 +80,18 @@ ${data.message}
 
     if (status === 'success') {
         return (
-            <div role="status" className="grid justify-items-start gap-4 rounded-2xl border border-line bg-white p-8">
-                <span className="grid h-12 w-12 place-items-center rounded-full bg-whatsapp/15 text-whatsapp"><Check size={26} aria-hidden="true" /></span>
-                <h3 className="font-display text-2xl font-bold">{f.successTitle}</h3>
-                <p className="text-muted">{f.successDesc.replace('{email}', sentTo || contact.email)}</p>
+            <div role="status" className="glass ring-glow relative grid justify-items-start gap-4 p-8">
+                <span className="grid h-12 w-12 place-items-center rounded-full bg-whatsapp/15 text-whatsapp shadow-[0_0_30px_rgba(37,211,102,.4)]"><Check size={26} aria-hidden="true" /></span>
+                <h3 className="font-display text-2xl font-bold text-white">{f.successTitle}</h3>
+                <p className="text-fog">{f.successDesc.replace('{email}', sentTo || contact.email)}</p>
                 <button type="button" className="btn-ghost" onClick={() => setStatus('idle')}>{f.again}</button>
             </div>
         );
     }
 
     return (
-        <form ref={formRef} onSubmit={handleSubmit} className="grid gap-4 rounded-2xl border border-line bg-white p-6 sm:p-8" aria-labelledby="form-title">
-            <h3 id="form-title" className="font-display text-2xl font-bold">{f.title}</h3>
+        <form ref={formRef} onSubmit={handleSubmit} className="glass ring-glow relative grid gap-5 p-6 sm:p-9" aria-labelledby="form-title">
+            <h3 id="form-title" className="font-display text-2xl font-bold text-white">{f.title}</h3>
             <div className="grid gap-4 sm:grid-cols-2">
                 <Field id={ids.name} label={f.name}><input id={ids.name} name="name" required autoComplete="name" className={inputClass} /></Field>
                 <Field id={ids.email} label={f.email}><input id={ids.email} name="email" type="email" required autoComplete="email" dir="ltr" className={inputClass} /></Field>
@@ -108,10 +108,10 @@ ${data.message}
             </Field>
             {/* Honeypot field for spam bots, hidden from people and screen readers */}
             <div className="hidden" aria-hidden="true"><input type="text" name="website" tabIndex={-1} autoComplete="off" /></div>
-            <button type="submit" className="btn-dark justify-self-start px-6 py-3" disabled={status === 'loading'}>
+            <button type="submit" className="btn-primary justify-self-start" disabled={status === 'loading'}>
                 {status === 'loading' ? <><Loader size={18} className="animate-spin" aria-hidden="true" />{f.sending}</> : f.send}
             </button>
-            {status === 'error' && <p role="alert" className="text-sm text-[#b42318]">{f.error}</p>}
+            {status === 'error' && <p role="alert" className="text-sm text-[#ff8a8a]">{f.error}</p>}
         </form>
     );
 };

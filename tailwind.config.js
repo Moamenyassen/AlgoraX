@@ -4,16 +4,18 @@ export default {
     theme: {
         extend: {
             colors: {
-                ink: "#17142b",
-                mist: "#f7f6fb",
-                muted: "#5d5873",
-                line: "#e3e0ec",
-                violet: { DEFAULT: "#6a47dc", soft: "#a28bff" },
-                teal: "#2fc4b4",
-                reach: { DEFAULT: "#0f9c94", deep: "#0f3d47", night: "#10283a", glow: "#5fe0d2" },
-                mindo: { DEFAULT: "#cc4f79", deep: "#4a1d36", night: "#2a1530", glow: "#ff9cb9", warm: "#fbf6f4" },
-                amber: { DEFAULT: "#f2b66b", deep: "#e08a2e" },
-                whatsapp: "#1f9d55",
+                // Midnight base
+                night: { DEFAULT: "#07061a", 2: "#0c0a24", 3: "#13102f" },
+                fog: "#b9b4d6",
+                dim: "#8a85a8",
+                // Brand ribbon (from the logo)
+                violet: { DEFAULT: "#7c5cff", soft: "#a594ff" },
+                cyan: "#22d3ee",
+                teal: "#2fe0c4",
+                // Products
+                reach: { DEFAULT: "#2fe0c4", deep: "#073b44" },
+                mindo: { DEFAULT: "#ff5c93", deep: "#3d0f2a", amber: "#ffb35c" },
+                whatsapp: "#25d366",
             },
             fontFamily: {
                 display: ['"Bricolage Grotesque"', '"Readex Pro"', 'system-ui', 'sans-serif'],
@@ -21,7 +23,8 @@ export default {
                 mono: ['"JetBrains Mono"', 'ui-monospace', 'Menlo', 'monospace'],
             },
             backgroundImage: {
-                ribbon: "linear-gradient(100deg, #6a47dc 0%, #8a5ce6 35%, #3fb7c9 75%, #2fc4b4 100%)",
+                ribbon: "linear-gradient(100deg, #7c5cff 0%, #a26bff 30%, #22d3ee 70%, #2fe0c4 100%)",
+                "ribbon-warm": "linear-gradient(100deg, #7c5cff 0%, #ff5c93 60%, #ffb35c 100%)",
             },
         },
     },

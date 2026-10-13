@@ -11,16 +11,18 @@ import Privacy from './pages/Privacy';
 import NotFound from './pages/NotFound';
 import { LanguageProvider } from './context/LanguageProvider';
 import { content } from './data/content';
+import { useSiteMotion } from './components/useSiteMotion';
 
 const PAGES = { home: Home, reach: Reach, mindo: Mindo, solutions: Solutions, about: About, contact: Contact, privacy: Privacy, notFound: NotFound };
 const DOCK_TOPIC = { reach: 'reach', mindo: 'mindo', solutions: 'solutions' };
 
 function App({ lang, page }) {
     const Page = PAGES[page] ?? NotFound;
+    useSiteMotion();
     return (
         <LanguageProvider lang={lang} page={page}>
-            <div lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} className="min-h-screen bg-mist font-sans text-ink">
-                <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white">
+            <div lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} className="min-h-screen bg-night font-sans text-white">
+                <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-violet focus:px-4 focus:py-2 focus:text-white">
                     {content[lang].nav.skip}
                 </a>
                 <Navbar />

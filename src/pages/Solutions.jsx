@@ -1,5 +1,7 @@
 import { useLanguage } from '../hooks/useLanguage';
 import { SectionHead } from '../components/Section';
+import PageHero from '../components/PageHero';
+import Reveal from '../components/Reveal';
 import Process from '../components/Process';
 import CtaBand from '../components/CtaBand';
 import { serviceIcons } from '../components/serviceIcons';
@@ -9,28 +11,26 @@ const Solutions = () => {
     const s = t.solutions;
     return (
         <>
-            <section className="container-x grid gap-5 py-14 sm:py-20">
-                <span className="eyebrow text-violet">{s.eyebrow}</span>
-                <h1 className="max-w-3xl font-display text-[clamp(2.3rem,5vw,3.75rem)] font-extrabold leading-[1.05] tracking-tight">{s.title}</h1>
-                <p className="max-w-2xl text-lg text-muted">{s.desc}</p>
-            </section>
-            <section className="container-x grid gap-8 pb-16 sm:pb-20">
+            <PageHero eyebrow={s.eyebrow} title={s.title} desc={s.desc} />
+            <section className="container-x grid gap-14 pb-24 sm:pb-32">
                 <SectionHead title={s.servicesTitle} />
-                <div className="grid gap-4 md:grid-cols-3">
-                    {t.services.map((x) => {
+                <div className="grid gap-5 md:grid-cols-3">
+                    {t.services.map((x, i) => {
                         const Icon = serviceIcons[x.key];
                         return (
-                            <div key={x.key} className="grid content-start gap-3 rounded-2xl border border-line bg-white p-6">
-                                <span className="grid h-11 w-11 place-items-center rounded-xl bg-violet/10 text-violet"><Icon size={22} aria-hidden="true" /></span>
-                                <h3 className="font-display text-xl font-bold">{x.title}</h3>
-                                <p className="text-muted">{x.desc}</p>
-                                <p className="border-t border-line pt-3 text-sm text-ink">{s.examples[x.key]}</p>
-                            </div>
+                            <Reveal key={x.key} delay={i * 110} className="h-full">
+                                <div className="group spot ring-glow relative grid h-full content-start gap-4 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition-transform duration-300 hover:-translate-y-1">
+                                    <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-violet/30 to-cyan/10 text-white ring-1 ring-white/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"><Icon size={26} aria-hidden="true" /></span>
+                                    <h3 className="font-display text-2xl font-bold text-white">{x.title}</h3>
+                                    <p className="text-fog">{x.desc}</p>
+                                    <p className="border-t border-white/10 pt-4 text-sm text-violet-soft">{s.examples[x.key]}</p>
+                                </div>
+                            </Reveal>
                         );
                     })}
                 </div>
             </section>
-            <section className="container-x grid gap-8 pb-16 sm:pb-20">
+            <section className="container-x grid gap-14 pb-24 sm:pb-32">
                 <SectionHead title={s.processTitle} />
                 <Process />
             </section>
